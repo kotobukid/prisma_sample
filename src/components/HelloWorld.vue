@@ -7,15 +7,13 @@ defineProps<{ msg: string }>()
 const count = ref(0)
 </script>
 
-<template>
-<h1>{{ msg }}</h1>
-<UserList></UserList>
-<hr>
-<UserList></UserList>
-<div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
-</div>
-
+<template lang="pug">
+h1 {{ msg }}
+UserList
+hr
+UserList
+.card
+    button(type="button" @click="count++") count is {{ count }}
 </template>
 
 <style scoped>
