@@ -7,7 +7,7 @@ import FramedBox from './components/FramedBox.vue'
 
 <template>
   <div>
-      <FramedBox>
+      <FramedBox color="purple">
           aaa
       </FramedBox>
     <a href="https://vitejs.dev" target="_blank">
