@@ -3,8 +3,9 @@ import createError from 'http-errors';
 import express from 'express'
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
+import fs from 'fs';
 
-import indexRouter from './routes/index.js';
+// import indexRouter from './routes/index.js';
 import usersRouter from './routes/user.js';
 
 const app: express.Express = express();
@@ -18,9 +19,14 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static('./public'));
+app.use(express.static('./dist'));
 
-app.use('/', indexRouter);
 app.use('/api/user', usersRouter);
+app.use('/', (req, res) => {
+    fs.readFile(new URL('./dist/index.html', import.meta.url), (err, data) => {
+        res.end(data);
+    });
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next: NextFunction) {
