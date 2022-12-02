@@ -2,4 +2,7 @@ import {createApp} from 'vue'
 import './style.css'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+fetch('/api/user').then((resp: Response) => {
+    console.log(resp.body)
+    createApp(App).mount('#app')
+});

@@ -1,9 +1,20 @@
 {
   "compilerOptions": {
-    "composite": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "allowSyntheticDefaultImports": true
+    "target": "ES2016",
+    "module": "esnext",
+    "strict": true,
+    "noUnusedParameters": false,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "newLine": "lf"
   },
-  "include": ["vite.config.ts"]
+  "include": [
+    "app.ts",
+    "routes"
+  ],
+  "files": [
+    "bin/www.ts"
+  ]
 }
