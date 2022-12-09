@@ -13,6 +13,7 @@ datasource db {
 model User {
     id Int @id @default(autoincrement())
     name String @unique
+    family_name String @default("")
     email String?
     age Int @default(0)
     updatedAt DateTime @updatedAt
