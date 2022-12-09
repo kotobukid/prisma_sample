@@ -7,6 +7,7 @@ const rev_users = (): void => {
     alert('反転します(action発行的なものの例)');
     const reversed_users = userStore.users.reverse();
     userStore.replace_users(reversed_users);
+    // userStore.users = reversed_users;
 }
 </script>
 

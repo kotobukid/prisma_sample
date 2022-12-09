@@ -5,6 +5,11 @@ import UserList from './UserList.vue'
 defineProps<{ msg: string }>()
 
 const count = ref(0)
+
+
+const incr = () => {
+    count.value = count.value + 3
+}
 </script>
 
 <template lang="pug">
@@ -13,7 +18,7 @@ UserList
 hr
 UserList
 .card
-    button(type="button" @click="count++") count is {{ count }}
+    button(type="button" @click="incr") count is {{ count }}
 </template>
 
 <style scoped>
