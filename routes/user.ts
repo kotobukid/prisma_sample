@@ -1,17 +1,14 @@
 import * as express from 'express'
+import * as pc from '@prisma/client';
 
 const router = express.Router();
+const prisma = new pc.PrismaClient();
 
 /* GET users listing. */
-router.get('/', function (req, res, next) {
+router.get('/', async (req, res, next) => {
+    const users = await prisma.user.findMany();
     res.json({
-        users: [
-            {id: 1, name: 'Taro', age: 18},
-            {id: 2, name: 'Jiro', age: 17},
-            {id: 3, name: 'Saburo', age: 15},
-            {id: 4, name: 'Hanako', age: 18},
-            {id: 5, name: 'Jane', age: 20},
-        ]
+        users
     });
 });
 

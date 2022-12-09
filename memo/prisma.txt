@@ -1,0 +1,11 @@
+# Prismaインストール、初期化
+npm i prisma -g
+prisma init
+
+prisma migrate dev --name initial
+
+# edit prisma/schema.prisma
+# edit .env # 接続文字列に秘匿情報を含む場合は.gitignoreに追加するなどする
+
+# GUI管理画面
+prisma studio
