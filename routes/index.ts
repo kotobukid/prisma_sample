@@ -1,5 +1,5 @@
 import * as express from 'express';
-import fs from "fs";
+import * as fs from "fs";
 import {check_session} from "./middlewares.js";
 
 const router = express.Router();
