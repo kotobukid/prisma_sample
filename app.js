@@ -2,8 +2,11 @@ import createError from 'http-errors';
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
+import SwaggerUiDist from 'swagger-ui-dist';
+import swaggerRouter from './routes/swagger.js';
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/user.js';
+const pathToSwaggerUi = SwaggerUiDist.absolutePath();
 const app = express();
 // view engine setup
 app.set('views', './views');
@@ -13,9 +16,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/', indexRouter);
+app.use('/swagger', express.static(pathToSwaggerUi));
 app.use(express.static('./public'));
 app.use(express.static('./dist'));
 app.use('/api/user', usersRouter);
+app.use('/sw', swaggerRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     next(createError(404));

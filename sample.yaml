@@ -1,0 +1,27 @@
+info:
+  version: '0.1'
+  title: 'new environment'
+servers:
+  - url: http://localhost:3000
+    description: Development server
+paths:
+  /api/user:
+    get:
+      parameters: []
+
+      responses:
+        '200':
+          description: users list
+          content:
+            'application/json':
+              schema:
+                type: 'object'
+              example:
+                - users:
+                  - id: 1
+                    name: 'taro'
+                  - id: 2
+                    name: 'jiro'
+
+
+openapi: 3.0.0
