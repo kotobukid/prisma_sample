@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {ref} from 'vue'
-import UserList from './UserList.vue'
+import UserList from './UserList.vue';
+import RotationBox from "./RotationBox.vue";
 
 defineProps<{ msg: string }>()
 
@@ -13,6 +14,8 @@ const incr = () => {
 </script>
 
 <template lang="pug">
+RotationBox
+RotationBox
 h1 {{ msg }}
 UserList
 hr
