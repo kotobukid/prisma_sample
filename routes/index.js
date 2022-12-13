@@ -1,11 +1,14 @@
 import * as express from 'express';
-import * as fs from "fs";
 import { check_session } from "./middlewares.js";
+import { serve_single_file } from "./common.js";
 const router = express.Router();
 /* GET home page. */
 router.get('/', [check_session], function (req, res) {
-    fs.readFile(new URL('../dist/index.html', import.meta.url), (err, data) => {
+    serve_single_file(new URL('../dist/index.html', import.meta.url)).then(data => {
         res.end(data);
+    }).catch(err => {
+        console.error(err);
+        throw err;
     });
 });
 export default router;

@@ -3,7 +3,9 @@ info:
   title: 'new environment'
 servers:
   - url: http://localhost:3000
-    description: Development server
+    description: Development server(loopback)
+  - url: http://192.168.1.187:3000
+    description: Dev server(LAN)
 paths:
   /api/user:
     get:
